@@ -1,9 +1,9 @@
 import unittest # Importing the unittest module
-from smaccounts import User
+from smaccounts import User, Credential
 
 class TestUser(unittest.TestCase):
     '''
-    Test class that defines test cases for the contact class behaviours
+    Test class that defines test cases for the users class behaviours
     Args:
         unittest.TestCase: Testcase class that helps create test cases
     '''
@@ -35,6 +35,27 @@ class TestUser(unittest.TestCase):
         '''
         User.users_list = []
 
+class TestCredentials(unittest.TestCase):
+    '''
+    Test class that defines test cases for the credentials class behaviours
+    Args:
+        unittest.TestCase: Testcase class that helps create test cases
+    '''
+
+    def test_confirm_user(self):
+        '''
+        Function to confirm login details to active user
+        '''
+        self.new_user = User("Tom","Chege","angry")
+        self.new_user.save_user()
+        userX= User("Tim","Chege","angry")
+        userX.save_user()
+
+        for user in User.users_list:
+            if user.first_name == userX.first_name and user.password == userX.password:
+                active_user = user.first_name
+                return active_user
+                self.assertEqual(active_user,Credential.confirm_user(userX.password,userX.first_name))
 
 
 
