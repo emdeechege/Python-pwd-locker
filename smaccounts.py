@@ -37,3 +37,13 @@ class Credential:
             if (user.first_name == first_name and user.password == password):
                 active_user = user.first_name
         return active_user
+
+    def __init__(self,user_name,social_media,account_name,password):
+        '''
+        Method defining the properties each object will hold
+        '''
+
+        self.user_name = user_name
+        self.social_media = social_media
+        self.account_name = account_name
+        self.password = password

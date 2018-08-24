@@ -68,11 +68,11 @@ class TestCredentials(unittest.TestCase):
         Confirm that instance of credentials creation is as expected
         '''
         self.assertEqual(self.new_credential.user_name,"Ivan")
-        self.assertEqual(self.new_credential.user_social_media,"Facebook")
-        self.assertEqual(self.new_credential.user_account_name,"ivan2")
-        self.assertEqual(self.new_credential.user_password,"pwdhappy")
+        self.assertEqual(self.new_credential.social_media,"Facebook")
+        self.assertEqual(self.new_credential.account_name,"ivan2")
+        self.assertEqual(self.new_credential.password,"pwdhappy")
 
-        
+
 
 
 
