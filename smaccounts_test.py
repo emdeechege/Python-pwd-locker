@@ -93,6 +93,16 @@ class TestCredentials(unittest.TestCase):
         # bonga.save_credentials()
         self.assertEqual(len(Credential.display_credentials(snapchat.user_name)),1)
 
+    def test_search_social_media(self):
+        '''
+        Test to confirm if the method returns the correct social media credential
+        '''
+        self.new_credential.save_credentials()
+        snapchat = Credential("Ivan","snapchat","ivyivy","f4578n")
+        snapchat.save_credentials()
+        credential_exists = Credential.search_social_media("snapchat")
+        self.assertEqual(credintial_exists,snapchat)
+
 
 
 
