@@ -101,7 +101,7 @@ class TestCredentials(unittest.TestCase):
         snapchat = Credential("Ivan","snapchat","ivyivy","f4578n")
         snapchat.save_credentials()
         credential_exists = Credential.search_social_media("snapchat")
-        self.assertEqual(credintial_exists,snapchat)
+        self.assertEqual(credential_exists,snapchat)
 
 
 

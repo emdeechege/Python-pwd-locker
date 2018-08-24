@@ -64,3 +64,12 @@ class Credential:
             if credential.user_name == user_name:
                 user_credentials_list.append(credential)
                 return user_credentials_list
+
+    @classmethod
+    def search_social_media(cls, social_media):
+        '''
+        Method that acccepts social media name and returns credentials matching the site name
+        '''
+        for credential in cls.credentials_list:
+            if credential.social_media == social_media:
+                return credential
