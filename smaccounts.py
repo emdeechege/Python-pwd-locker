@@ -47,3 +47,9 @@ class Credential:
         self.social_media = social_media
         self.account_name = account_name
         self.password = password
+
+    def save_credentials(self):
+        '''
+        Function to save new user credentials
+        '''
+        Credential.credentials_list.append(self)
