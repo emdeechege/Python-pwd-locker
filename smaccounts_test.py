@@ -91,9 +91,7 @@ class TestCredentials(unittest.TestCase):
         self.new_credential.save_credentials()
         snapchat = Credential("Ivan","snapchat","ivyivy","f4578n")
         snapchat.save_credentials()
-        # bonga = Credential("Ivan","bonga","Ivanna","b0909m")
-        # bonga.save_credentials()
-        self.assertEqual(len(Credential.display_credentials(snapchat.user_name)),1)
+        self.assertEqual(Credential.display_credentials(),Credential.credentials_list)
 
     def test_search_social_media(self):
         '''
@@ -105,20 +103,20 @@ class TestCredentials(unittest.TestCase):
         credential_exists = Credential.search_social_media("snapchat")
         self.assertEqual(credential_exists,snapchat)
 
-    # def test_copy_credential(self):
-    #     '''
-    #     Test to check if the copy credential method will copy the correct credential details
-    #     '''
-    #     self.new_credential.save_credentials()
-    #     snapchat = Credential("Ivan","snapchat","ivyivy","f4578n")
-    #     snapchat.save_credentials()
-    #     find_credential = None
-    #     for credential in Credential.user_credentials_list:
-    #         find_credential = Credential.search_social_media(credential.social_media)
-    #         return pyperclip.copy(find_credential.password)
-    #     # credential.copy_credential(self.new_credential.social_media)
-    #     self.assertEqual("f4578n",pyperclip.paste())
-    #     print(pyperclip.paste())
+    def test_copy_credential(self):
+        '''
+        Test to check if the copy credential method will copy the correct credential details
+        '''
+        self.new_credential.save_credentials()
+        snapchat = Credential("Ivan","snapchat","ivyivy","f4578n")
+        snapchat.save_credentials()
+        find_credential = None
+        for credential in Credential.credentials_list:
+            find_credential = Credential.search_social_media(credential.social_media)
+            return pyperclip.copy(find_credential.password)
+        # credential.copy_credential(self.new_credential.social_media)
+        self.assertEqual("f4578n",pyperclip.paste())
+        print(pyperclip.paste())
 
 if __name__ == '__main__':
     unittest.main()

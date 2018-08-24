@@ -119,7 +119,7 @@ def main():
 								print('Sorry! Incorrect option entered. Try again.')
 						save_credential(create_credential(user_name,social_media,account_name,password))
 						print(' ')
-						print(f'Credential Created: social media Name: {social_media} - Social media Handle: {account_name} - Password: {password}')
+						print(f'Credential Created: social media Name: {social_media} - Social Media Handle: {account_name} - Password: {password}')
 						print(' ')
 					elif short_code == 'dc':
 						print(' ')
@@ -127,7 +127,7 @@ def main():
 							print('Here is a list of all your social media credentials')
 							print(' ')
 							for credential in display_credentials():
-								print(f'social_media Name: {credential.social_media} - Account Name: {credential.account_name} - Password: {credential.password}')
+								print(f'Social Media Account: {credential.social_media} - Social Media Handle: {credential.account_name} - Password: {credential.password}')
 							print(' ')
 						else:
 							print(' ')
