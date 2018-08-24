@@ -68,7 +68,47 @@ def main():
             print("-",*60)
             print(' ')
             print('Create New Account: ')
-            
+            first_name = input ('Enter your first name- ').strip()
+            last_name = input ('Enter your flast name- ').strip()
+            password = input ('Enter your password- ').strip()
+            save_user(create_user(first_name,last_name,password))
+            if user_exists === user_name:
+                print(" ")
+                print(f'Welcome {user_name}. Please choose an option to proceed.)
+                print(' ')
+                while True:
+                    print("-",*60)
+                    print('Navigation codes: \n cc-Create a Credential \n dc-Display Credentials \n ex-Exit')
+					short_code = input('Enter your choice: ').lower().strip()
+                    print("-",*60)
+                    if short_code == 'ex':
+                        print(" ")
+                        print(f'Goodbye {user_name})
+                        break
+                elif short_code == 'cc':
+						print(' ')
+						print('Enter your credential details:')
+						social_media = input('Enter the social media\'s name- ').strip()
+						account_name = input('Enter your account\'s name - ').strip()
+						while True:
+							print(' ')
+							print("-"*60)
+							print('Please choose an option for entering a password: \n ep-enter existing password \n gp-generate a password \n ex-exit')
+							psw_choice = input('Enter an option: ').lower().strip()
+							print("-"*60)
+							if psw_choice == 'ep':
+								print(" ")
+								password = input('Enter your password: ').strip()
+								break
+							elif psw_choice == 'gp':
+								password = generate_password()
+								break
+							elif psw_choice == 'ex':
+								break
+                                    
+
+
+
 
 
 
