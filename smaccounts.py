@@ -1,5 +1,5 @@
 import pyperclip
-
+global users
 class User:
     '''
     Class to create new user accounts and save the same to help in accesssing the pwd locker
@@ -76,10 +76,10 @@ class Credential:
             if credential.social_media == social_media:
                 return credential
 
-    @classmethod
-    def copy_social_media(cls,social_media):
-        '''
-		Class method that copies a credential's info after the credential's site name is entered
-		'''
-		find_credential = Credential.search_social_media()
-		return pyperclip.copy(find_credential.password)
+    # @classmethod
+    # def copy_social_media(cls,social_media):
+    #     '''
+	# 	Class method that copies a credential's info after the credential's site name is entered
+	# 	'''
+	# 	find_credential = Credential.search_social_media(social_media)
+    #     return pyperclip.copy(find_credential.password)
