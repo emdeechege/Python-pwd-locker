@@ -137,7 +137,7 @@ def main():
 						print(' ')
 						chosen_social_media = input('Enter the social_media name for the credential password to copy: ')
 						copy_credential(chosen_social_media)
-						print('')
+						print('Password copied')
 					else:
 						print('Sorry! Incorrect option entered. Try again.')
 

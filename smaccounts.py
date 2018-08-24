@@ -60,7 +60,7 @@ class Credential:
 
     def generate_password():
         '''
-        Function to generate random passwords for social media sites
+        Function to generate random passwords for social media accounts
         '''
         pwchar = string.printable
         length = int(input('Enter password length desired: '))
@@ -80,16 +80,16 @@ class Credential:
     @classmethod
     def search_social_media(cls, social_media):
         '''
-        Method that acccepts social media name and returns credentials matching the site name
+        Method that acccepts social media name and returns credentials matching the social media name
         '''
         for credential in cls.credentials_list:
             if credential.social_media == social_media:
                 return credential
 
-    # @classmethod
-    # def copy_social_media(cls,social_media):
-    #     '''
-	# 	Class method that copies a credential's info after the credential's site name is entered
-	# 	'''
-	# 	find_credential = Credential.search_social_media()
-    #     return pyperclip.copy(find_credential.password)
+    @classmethod
+    def copy_social_media(cls,social_media):
+        '''
+		Class method that copies a credential's info after the credential's social media name is entered
+		'''
+        find_credential = Credential.search_social_media(social_media)
+        return pyperclip.copy(find_credential.password)
