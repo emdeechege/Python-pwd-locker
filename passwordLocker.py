@@ -60,7 +60,7 @@ def main():
 	while True:
 		print(' ')
 		print("-"*70)
-		print('Use these codes to navigate: \n ca-Create an Account \n li-Log In \n ex-Exit')
+		print('Use these codes to navigate: \n ca-Create Password Locker Account \n li-Log Into Password Locker \n ex-Exit')
 		short_code = input('Enter an option: ').lower().strip()
 		if short_code == 'ex':
 			break
@@ -68,17 +68,17 @@ def main():
 		elif short_code == 'ca':
 			print("-"*70)
 			print(' ')
-			print('To create a new account:')
+			print('To create a new password locker account:')
 			first_name = input('Enter your first name - ').strip()
 			last_name = input('Enter your last name - ').strip()
 			password = input('Enter your password - ').strip()
 			save_user(create_user(first_name,last_name,password))
 			print(" ")
-			print(f'New Account Created for: {first_name} {last_name} using password: {password}')
+			print(f'New PL Account Created for: {first_name} {last_name} using password: {password}')
 		elif short_code == 'li':
 			print("-"*70)
 			print(' ')
-			print('To login, enter your account details:')
+			print('To login, enter your password locker account details:')
 			user_name = input('Enter your first name - ').strip()
 			password = str(input('Enter your password - '))
 			user_exists = authenticate_user(user_name,password)
@@ -88,7 +88,7 @@ def main():
 				print(' ')
 				while True:
 					print("-"*70)
-					print('Navigation codes: \n cc-Create a Credential \n dc-Display Credentials \n copy-Copy Password \n ex-Exit')
+					print('Navigation codes: \n cc-Create Social Media credentials\n dc-Display Credentials \n copy-Copy Password \n ex-Exit')
 					short_code = input('Choose an option: ').lower().strip()
 					print("-"*70)
 					if short_code == 'ex':
@@ -99,7 +99,7 @@ def main():
 						print(' ')
 						print('Enter your credential details:')
 						social_media = input('Enter the social media name- ').strip()
-						account_name = input('Enter your account\'s name - ').strip()
+						account_name = input('Enter your social media handle - ').strip()
 						while True:
 							print(' ')
 							print("-"*70)
@@ -119,19 +119,19 @@ def main():
 								print('Sorry! Incorrect option entered. Try again.')
 						save_credential(create_credential(user_name,social_media,account_name,password))
 						print(' ')
-						print(f'Credential Created: social media Name: {social_media} - Account Name: {account_name} - Password: {password}')
+						print(f'Credential Created: social media Name: {social_media} - Social media Handle: {account_name} - Password: {password}')
 						print(' ')
 					elif short_code == 'dc':
 						print(' ')
 						if display_credentials():
-							print('Here is a list of all your credentials')
+							print('Here is a list of all your social media credentials')
 							print(' ')
 							for credential in display_credentials():
 								print(f'social_media Name: {credential.social_media} - Account Name: {credential.account_name} - Password: {credential.password}')
 							print(' ')
 						else:
 							print(' ')
-							print("You don't seem to have any credentials saved yet")
+							print("Sorry, no credentials. cc to add.")
 							print(' ')
 					elif short_code == 'copy':
 						print(' ')
