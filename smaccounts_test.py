@@ -81,6 +81,17 @@ class TestCredentials(unittest.TestCase):
         snapchat.save_credentials()
         self.assertEqual(len(Credential.credentials_list),2)
 
+    def test_display_credentials(self):
+        '''
+        Test to confirm user can view the correct credential details
+        '''
+        self.new_credential.save_credentials()
+        snapchat = Credential("Ivan","snapchat","ivyivy","f4578n")
+        snapchat.save_credentials()
+        bonga = Credential("Ivan","bonga","Ivanna","b0909m")
+        bonga.save_credentials()
+        self.assertEqual(len(Credentail.display_credentials(snapchat.user_name)),2)
+
 
 
 
