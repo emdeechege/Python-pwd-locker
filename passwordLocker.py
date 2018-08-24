@@ -42,7 +42,36 @@ def save_credential(credential):
     '''
     Credential.save_credentials(credential)
 
-def 
+def display_credentials(user_name):
+    '''
+    Function to display_credentials saved by user
+    '''
+    return Credential.display_credentials(user_name)
+
+# def copy_credential(social_media):
+#     '''
+#     Function to copy credential details and paste then in clipboard
+#     '''
+#     return Credential.copy_credential(social_media)
+def main():
+    print('')
+    print('Jambo! Karibu kwenye Password Locker.')
+    while True:
+        print(' ')
+        print("-",*60)
+        print('Use these codes to navigate: \n ca-Create an Account\n li-Log In \n ex-Exit')
+        short_code = input('Please enter your choice: ').lower().strip()
+        if short_code == 'ex':
+            break
+
+        elif short_code == 'ca':
+            print("-",*60)
+            print(' ')
+            print('Create New Account: ')
+            
+
+
+
 
 
 
