@@ -22,8 +22,27 @@ def authenticate_user(fstname,password):
     confirm_user = Credential.confirm_user(first_name,password)
     return confirm_user
 
+# def generate_password():
+#     '''
+#     Function to automatically gen password
+#     '''
+#     gen_pwd = Credential.generate_password()
+#     return gen_pwd
 
+def create_credential(user_name,social_media,account_name,password):
+    '''
+    Function creating new credentials
+    '''
+    new_credential = Credential(user_name,social_media,account_name,password)
+    return new_credential
 
+def save_credential(credential):
+    '''
+    Saves new credentials
+    '''
+    Credential.save_credentials(credential)
+
+def 
 
 
 
