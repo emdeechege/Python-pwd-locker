@@ -58,14 +58,16 @@ class Credential:
         '''
         Credential.credentials_list.append(self)
 
-    def generate_password(length = int(input('pwd length?')), pwchar=string.printable):
+    def generate_password():
         '''
         Function to generate random passwords for social media sites
         '''
+        pwchar = string.printable
+        length = int(input('Enter password length desired: '))
         gen_pwd= ''
-        for c in range(length):
-            gen_pwd += random.choice(pwdchar)
-        return gen_pwd        
+        for char in range(length):
+            gen_pwd += random.choice(pwchar)
+        return gen_pwd
 
 
     @classmethod
