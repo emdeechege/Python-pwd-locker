@@ -57,6 +57,23 @@ class TestCredentials(unittest.TestCase):
                 return active_user
                 self.assertEqual(active_user,Credential.confirm_user(userX.password,userX.first_name))
 
+    def setUp(self):
+        '''
+        Function to create social media account credentials before each test
+        '''
+        self.new_credential = Credential("Ivan", "Facebook","ivan2","pwdhappy")
+
+    def test__init__(self):
+        '''
+        Confirm that instance of credentials creation is as expected
+        '''
+        self.assertEqual(self.new_credential.user_name,"Ivan")
+        self.assertEqual(self.new_credential.user_social_media,"Facebook")
+        self.assertEqual(self.new_credential.user_account_name,"ivan2")
+        self.assertEqual(self.new_credential.user_password,"pwdhappy")
+
+        
+
 
 
 
