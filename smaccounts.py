@@ -1,5 +1,5 @@
 import pyperclip
-global users
+
 class User:
     '''
     Class to create new user accounts and save the same to help in accesssing the pwd locker

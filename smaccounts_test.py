@@ -1,5 +1,5 @@
 import unittest # Importing the unittest module
-import pyperclip
+import pyperclip#helps in copy and paste functions
 
 from smaccounts import User, Credential
 
