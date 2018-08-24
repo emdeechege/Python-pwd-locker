@@ -15,7 +15,7 @@ def save_user(user):
     '''
     User.save_user(user)
 
-def authenticate_user(fstname,password):
+def authenticate_user(first_name,password):
     '''
     Function to verify user is enabled before launching the credentials
     '''
@@ -58,76 +58,87 @@ def main():
     print('Jambo! Karibu kwenye Password Locker.')
     while True:
         print(' ')
-        print("-",*60)
+        print("-",)
         print('Use these codes to navigate: \n ca-Create an Account\n li-Log In \n ex-Exit')
         short_code = input('Please enter your choice: ').lower().strip()
         if short_code == 'ex':
             break
 
         elif short_code == 'ca':
-            print("-",*60)
+            print("-",)
             print(' ')
             print('Create New Account: ')
-            first_name = input ('Enter your first name- ').strip()
-            last_name = input ('Enter your flast name- ').strip()
+            first_name = input ('Enter your First name- ').strip()
+            last_name = input ('Enter your Last name- ').strip()
             password = input ('Enter your password- ').strip()
             save_user(create_user(first_name,last_name,password))
-            if user_exists === user_name:
-                print(" ")
-                print(f'Welcome {user_name}. Please choose an option to proceed.)
+            print(" ")
+            print(f'New Account Created for: {first_name} {last_name} using password: {password}')
+        elif short_code == 'li':
+            print("-"*60)
+            print(' ')
+            print('To login, enter your account details:')
+            user_name = input('Enter your first name - ').strip()
+            password = str(input('Enter your password - '))
+            user_exists = authenticate_user(user_name,password)
+            if user_exists == user_name:
+                print(f'Welcome {user_name}. Please choose an option to proceed.')
                 print(' ')
                 while True:
-                    print("-",*60)
+                    print("-",)
                     print('Navigation codes: \n cc-Create a Credential \n dc-Display Credentials \n ex-Exit')
-					short_code = input('Enter your choice: ').lower().strip()
-                    print("-",*60)
+                    short_code = input('Enter a choice: ').lower().strip()
+                    print("-",)
                     if short_code == 'ex':
                         print(" ")
-                        print(f'Goodbye {user_name})
+                        print(f'Goodbye {user_name}')
                         break
-                elif short_code == 'cc':
-						print(' ')
-						print('Enter your credential details:')
-						social_media = input('Enter the social media\'s name- ').strip()
-						account_name = input('Enter your account\'s name - ').strip()
-						while True:
-							print(' ')
-							print("-"*60)
-							print('Please choose an option for entering a password: \n ep-enter existing password \n gp-generate a password \n ex-exit')
-							psw_choice = input('Enter an option: ').lower().strip()
-							print("-"*60)
-							if psw_choice == 'ep':
-								print(" ")
-								password = input('Enter your password: ').strip()
-								break
-							elif psw_choice == 'gp':
-								password = generate_password()
-								break
-							elif psw_choice == 'ex':
-								break
-                                    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    elif short_code == 'cc':
+                        print(' ')
+                        print('Enter your credential details:')
+                        social_media = input('Enter the social media\'s name- ').strip()
+                        account_name = input('Enter your account\'s name - ').strip()
+                        while True:
+                            print(' ')
+                            print("-")
+                            print('Please choose an option for entering a password: \n ep-enter existing password \n gp-generate a password \n ex-exit')
+                            psw_choice = input('Enter an option: ').lower().strip()
+                            print("-")
+                            if psw_choice == 'ep':
+                                print(" ")
+                                password = input('Enter your password: ').strip()
+                                break
+                            elif psw_choice == 'gp':
+                                password = generate_password()
+                                break
+                            elif psw_choice == 'ex':
+                                break
+                            else:
+                                print('Check! Wrong option entered. Try again.')
+                                save_credential(create_credential(user_name,social_media,account_name,password))
+                                print(' ')
+                                print(f'Credential Created: Social Media: {social_media} - Account Name: {account_name} - Password: {password}')
+                                print(' ')
+                    elif short_code == 'dc':
+                        print(' ')
+                        if display_credentials(user_name):
+                            print('Great! Here is a list of all your credentials')
+                            print(' ')
+                            for credential in display_credentials(user_name):
+                                print(f'Social Media: {credential.social_media} - Account Name: {credential.account_name} - Password: {credential.password}')
+                                print(' ')
+                            else:
+                                print(' ')
+                                print("You don't seem to have any credentials saved yet")
+                                print(' ')
+                        else:
+                            print(' ')
+                            print('Check! Wrong details entered. Try again or Create an Account.')
+                    # else:
+                    #     print("-")
+                    #     print(' ')
+                    #     print('Check! Wrong option entered. Try again.')
 
 if __name__ == '__main__':
-	main()
+
+    main()
