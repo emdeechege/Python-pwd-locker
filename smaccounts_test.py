@@ -103,6 +103,13 @@ class TestCredentials(unittest.TestCase):
         credential_exists = Credential.search_social_media("snapchat")
         self.assertEqual(credential_exists,snapchat)
 
+    def test_copy_credential(self):
+        '''
+        Test to check if the copy credential method will copy the correct credential details
+        '''
+        self.new_credential.save_credentials()
+        Credential.copy_social_media("Ivan")
+        self.assertEqual(self.new_credential.social_media,pyperclip.paste())
 
 
 
