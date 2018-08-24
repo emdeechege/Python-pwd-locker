@@ -42,11 +42,11 @@ def save_credential(credential):
     '''
     Credential.save_credentials(credential)
 
-def display_credentials(user_name):
+def display_credentials():
     '''
     Function to display_credentials saved by user
     '''
-    return Credential.display_credentials(user_name)
+    return Credential.display_credentials()
 
 def copy_credential(social_media):
     '''
@@ -61,7 +61,7 @@ def main():
 		print(' ')
 		print("-"*70)
 		print('Use these codes to navigate: \n ca-Create an Account \n li-Log In \n ex-Exit')
-		short_code = input('Enter a choice: ').lower().strip()
+		short_code = input('Enter an option: ').lower().strip()
 		if short_code == 'ex':
 			break
 
@@ -89,7 +89,7 @@ def main():
 				while True:
 					print("-"*70)
 					print('Navigation codes: \n cc-Create a Credential \n dc-Display Credentials \n copy-Copy Password \n ex-Exit')
-					short_code = input('Enter a choice: ').lower().strip()
+					short_code = input('Choose an option: ').lower().strip()
 					print("-"*70)
 					if short_code == 'ex':
 						print(" ")
@@ -104,16 +104,16 @@ def main():
 							print(' ')
 							print("-"*70)
 							print('Please choose an option for entering a password: \n ep-enter existing password \n gp-generate a password \n ex-exit')
-							psw_choice = input('Enter an option: ').lower().strip()
+							psw_options = input('Enter an option: ').lower().strip()
 							print("-"*70)
-							if psw_choice == 'ep':
+							if psw_options == 'ep':
 								print(" ")
 								password = input('Enter your password: ').strip()
 								break
-							elif psw_choice == 'gp':
+							elif psw_options == 'gp':
 								password = generate_password()
 								break
-							elif psw_choice == 'ex':
+							elif psw_options == 'ex':
 								break
 							else:
 								print('Sorry! Incorrect option entered. Try again.')
@@ -123,10 +123,10 @@ def main():
 						print(' ')
 					elif short_code == 'dc':
 						print(' ')
-						if display_credentials(user_name):
+						if display_credentials():
 							print('Here is a list of all your credentials')
 							print(' ')
-							for credential in display_credentials(user_name):
+							for credential in display_credentials():
 								print(f'social_media Name: {credential.social_media} - Account Name: {credential.account_name} - Password: {credential.password}')
 							print(' ')
 						else:

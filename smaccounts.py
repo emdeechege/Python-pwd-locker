@@ -1,4 +1,6 @@
 import pyperclip
+import string
+import random
 
 class User:
     '''
@@ -27,7 +29,7 @@ class Credential:
     '''
     # Class Variables
     credentials_list =[]
-    user_credentials_list = []
+    # user_credentials_list = []
 
     @classmethod
     def confirm_user(cls,first_name,password):
@@ -56,16 +58,22 @@ class Credential:
         '''
         Credential.credentials_list.append(self)
 
+    def generate_password(length = int(input('pwd length?')), pwchar=string.printable):
+        '''
+        Function to generate random passwords for social media sites
+        '''
+        gen_pwd= ''
+        for c in range(length):
+            gen_pwd += random.choice(pwdchar)
+        return gen_pwd        
+
+
     @classmethod
-    def display_credentials(cls,user_name):
+    def display_credentials(cls):
         '''
         Class method to display the list of saved credentials
         '''
-        user_credentials_list = []
-        for credential in cls.credentials_list:
-            if credential.user_name == user_name:
-                user_credentials_list.append(credential)
-                return user_credentials_list
+        return cls.credentials_list
 
     @classmethod
     def search_social_media(cls, social_media):
@@ -81,5 +89,5 @@ class Credential:
     #     '''
 	# 	Class method that copies a credential's info after the credential's site name is entered
 	# 	'''
-	# 	find_credential = Credential.search_social_media(social_media)
+	# 	find_credential = Credential.search_social_media()
     #     return pyperclip.copy(find_credential.password)
