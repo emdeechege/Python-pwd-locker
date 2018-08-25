@@ -29,7 +29,6 @@ class Credential:
     '''
     # Class Variables
     credentials_list =[]
-    # user_credentials_list = []
 
     @classmethod
     def confirm_user(cls,first_name,password):

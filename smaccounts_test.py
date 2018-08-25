@@ -110,7 +110,7 @@ class TestCredentials(unittest.TestCase):
         for credential in Credential.credentials_list:
             find_credential = Credential.search_social_media(credential.social_media)
             return pyperclip.copy(find_credential.password)
-        # credential.copy_credential(self.new_credential.social_media)
+        credential.copy_credential(self.new_credential.social_media)
         self.assertEqual("f4578n",pyperclip.paste())
         print(pyperclip.paste())
 

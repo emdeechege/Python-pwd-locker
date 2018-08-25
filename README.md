@@ -26,7 +26,7 @@ As a user I would like:
 
 ## SetUp / Installation Requirements
 ### Prerequisites
-* python3.6
+* python3.6-[Installation guide](https://realpython.com/installing-python/)
 * pyperclip-sudo apt-get install python-pyperclip
 
 ### Cloning
@@ -38,10 +38,13 @@ As a user I would like:
 ## Testing the Application
 * To run the tests for the class file:
 
-    $ python3.6 user_credentials_test.py
+    $ python3.6 smaccounts_test.py
 
 ## Technologies Used
 * Python3.6
+
+## Known Bugs
+* Copy function not fully functional
 
 ## License
 

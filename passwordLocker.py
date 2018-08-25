@@ -2,11 +2,11 @@
 import pyperclip
 from smaccounts import User, Credential
 
-def create_user(fstname,lstname,password):
+def create_user(firstname,lastname,password):
     '''
     Function to create user ac
     '''
-    new_user = User(fstname,lstname,password)
+    new_user = User(firstname,lastname,password)
     return new_user
 
 def save_user(user):
@@ -60,7 +60,7 @@ def main():
 	while True:
 		print(' ')
 		print("-"*70)
-		print('Use these codes to navigate: \n ca-Create Password Locker Account \n li-Log Into Password Locker \n ex-Exit')
+		print('Use these codes to navigate: \n ca-Create Password Locker Account \n li-Log Into Password Locker to access your credentials \n ex-Exit')
 		short_code = input('Enter an option: ').lower().strip()
 		if short_code == 'ex':
 			break
@@ -74,7 +74,7 @@ def main():
 			password = input('Enter your password - ').strip()
 			save_user(create_user(first_name,last_name,password))
 			print(" ")
-			print(f'New PL Account Created for: {first_name} {last_name} using password: {password}')
+			print(f'New Password Locker Account Created for: {first_name} {last_name} using password: {password}')
 		elif short_code == 'li':
 			print("-"*70)
 			print(' ')
@@ -135,8 +135,8 @@ def main():
 							print(' ')
 					elif short_code == 'copy':
 						print(' ')
-						chosen_social_media = input('Enter the social_media name for the credential password to copy: ')
-						copy_credential(chosen_social_media)
+						choose_social_media = input('Enter the social_media name for the credential password to copy: ')
+						copy_credential(choose_social_media)
 						print('Password copied')
 					else:
 						print('Sorry! Incorrect option entered. Try again.')
