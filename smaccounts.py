@@ -86,9 +86,9 @@ class Credential:
                 return credential
 
     @classmethod
-    def copy_social_media(cls,social_media):
+    def copy_password(cls,social_media):
         '''
-		Class method that copies a credential's info after the credential's social media name is entered
+		Class method that copies a credential's password of a specific social media site after the credential's social media name is entered
 		'''
-        find_credential = Credential.search_social_media(social_media)
-        return pyperclip.copy(find_credential.password)
+        collect_pass = Credential.search_social_media(social_media)
+        return pyperclip.copy(collect_pass.password)

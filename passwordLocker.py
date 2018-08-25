@@ -48,11 +48,11 @@ def display_credentials():
     '''
     return Credential.display_credentials()
 
-def copy_credential(social_media):
+def copy_password(social_media):
     '''
     Function to copy credential details and paste then in clipboard
     '''
-    return Credential.copy_credential(social_media)
+    return Credential.copy_password(social_media)
 
 def main():
 	print(' ')
@@ -88,7 +88,7 @@ def main():
 				print(' ')
 				while True:
 					print("-"*70)
-					print('Navigation codes: \n cc-Create Social Media credentials\n dc-Display Credentials \n copy-Copy Password \n ex-Exit')
+					print('Navigation codes: \n cc-Create Social Media credentials\n dc-Display Credentials \n copy-Copy Social Media Password \n ex-Exit')
 					short_code = input('Choose an option: ').lower().strip()
 					print("-"*70)
 					if short_code == 'ex':
@@ -135,9 +135,9 @@ def main():
 							print(' ')
 					elif short_code == 'copy':
 						print(' ')
-						choose_social_media = input('Enter the social_media name for the credential password to copy: ')
-						copy_credential(choose_social_media)
-						print('Password copied')
+						choose = input('Enter the social_media name for the credential password to copy: ')
+						copy_password(choose)
+						print('Password copied succesfully')
 					else:
 						print('Sorry! Incorrect option entered. Try again.')
 
