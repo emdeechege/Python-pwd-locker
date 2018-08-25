@@ -46,12 +46,8 @@ class TestCredentials(unittest.TestCase):
         self.new_user.save_user()
         userX= User("Tim","Chege","angry")
         userX.save_user()
-
-        for user in User.users_list:
-            if user.first_name == userX.first_name and user.password == userX.password:
-                active_user = user.first_name
-                return active_user
-                self.assertEqual(active_user,Credential.confirm_user(userX.password,userX.first_name))
+        active_user = Credential.confirm_user("Tim","angry")
+        self.assertTrue(active_user)
 
     def setUp(self):
         '''
